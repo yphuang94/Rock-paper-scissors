@@ -1,0 +1,28 @@
+ROCK-PAPER-SCISSORS
+
+Randomize the computer's choice
+
+When the user inputs their choice:
+    If the input is not "rock", "paper", or "scissor",
+        provide an error message,
+
+Compare the input against the computer:
+    If the player input is scissor, 
+        beats paper but loses to rock,
+    If the player input is rock,
+        beats scissors but loses to paper,
+    If the player input is paper,
+        beats rock but loses to scissors,
+
+When the user hits the "play again" button:
+    Randomize the computer's choice again,
+    Prompt the user for another input,
+    Compare the player against the computer again,
+    
+
+
+
+
+
+
+
