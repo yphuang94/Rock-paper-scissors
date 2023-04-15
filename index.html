@@ -11,17 +11,26 @@
     
     <script>
         let computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
-        console.log(computerInput);
 
         let playerInput = prompt("Please enter your choice of: Rock, Paper, or Scissor");
         let lowerInput = playerInput.toLowerCase(); //correct upper case inputs
         
-        validInput = "Please enter a valid choice" //error message if input is invalid
+        validMessage = "Please enter a valid choice" //error message if input is invalid
 
         if (lowerInput != "rock" && lowerInput != "paper" && lowerInput != "scissor") { //check for invalid inputs
-            alert(validInput); 
+            alert(validMessage); 
         }
     
+        let computerChoice = ""; //empty string
+
+        if (computerInput == 0) { //assign randomly generated number a value of rock, paper, or scissor
+            computerChoice = "rock";
+        } else if (computerInput == 1) {
+            computerChoice = "paper"; 
+        } else {
+            computerChoice = "scissor";
+        }
+
     </script>
 
 </body>
