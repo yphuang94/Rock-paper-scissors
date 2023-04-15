@@ -10,18 +10,12 @@
 <body>
     
     <script>
+        let computerChoice = ""; //create empty strings to be defined below
+        let playerInput = "";
+        let lowerInput = "";
+        let matchResults = "";
+
         let computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
-
-        let playerInput = prompt("Please enter your choice of: Rock, Paper, or Scissors");
-        let lowerInput = playerInput.toLowerCase(); //correct upper case inputs
-        
-        validMessage = "Please enter a valid choice" //error message if input is invalid
-
-        if (lowerInput != "rock" && lowerInput != "paper" && lowerInput != "scissors") { //check for invalid inputs
-            alert(validMessage);
-        }
-    
-        let computerChoice = ""; //empty string
 
         if (computerInput == 0) { //assign randomly generated number a value of rock, paper, or scissor
             computerChoice = "rock";
@@ -30,20 +24,30 @@
         } else {
             computerChoice = "scissors";
         }
-        console.log(computerChoice);
 
-        if (lowerInput == computerChoice) { //user input compared to computer's choice
-            alert("It's a tie!");
-        } else if (lowerInput == "rock" && computerChoice == "scissors") {
-            alert("You've won!");
-        } else if (lowerInput == "paper" && computerChoice == "rock") {
-            alert("You've won!"); 
-        } else if (lowerInput == "scissors" && computerChoice == "paper") {
-            alert("You've won!");
-        } else {
-            alert("You've lost...");
+        for (i=0; i<5; i++) {
+            playerInput = prompt("Please enter your choice of: Rock, Paper, or Scissors");
+            lowerInput = playerInput.toLowerCase();
+            matchResults = "Your selection: " + lowerInput + " | Computer's selection: " + computerChoice;
+
+            if (lowerInput != "rock" && lowerInput != "paper" && lowerInput != "scissors") { //check for valid input
+                alert("Please enter a valid choice");
+                i--; //decrementing i to net out the increment. Keeps prompting user when the if statement is true
+            }
+
+            if (lowerInput == computerChoice) { //generate match results (tie/win else lose)
+                alert("It's a tie! " + matchResults);
+            } else if (lowerInput == "rock" && computerChoice == "scissors") {
+                alert("You've won! " + matchResults);
+            } else if (lowerInput == "paper" && computerChoice == "rock") {
+                alert("You've won! " + matchResults);
+            } else if (lowerInput == "scissors" && computerChoice == "paper") {
+                alert("You've won! " + matchResults);
+            } else {
+                alert("You've lost... " + matchResults);
+            }
         }
-        
+
     </script>
 
 </body>
