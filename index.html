@@ -14,6 +14,7 @@
         let playerInput = "";
         let lowerInput = "";
         let matchResults = "";
+        let invalid = "";
 
         let computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
 
@@ -33,6 +34,7 @@
             if (lowerInput != "rock" && lowerInput != "paper" && lowerInput != "scissors") { //check for valid input
                 alert("Please enter a valid choice");
                 i--; //decrementing i to net out the increment. Keeps prompting user when the if statement is true
+                invalid = 1; //for use in loop below to separate scenario of invalid strings versus computer
             }
 
             if (lowerInput == computerChoice) { //generate match results (tie/win else lose)
@@ -43,6 +45,8 @@
                 alert("You've won! " + matchResults);
             } else if (lowerInput == "scissors" && computerChoice == "paper") {
                 alert("You've won! " + matchResults);
+            } else if (invalid == 1) {
+                alert("Your match will begin once you select Rock, Paper, or Scissors!")
             } else {
                 alert("You've lost... " + matchResults);
             }
