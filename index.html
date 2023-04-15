@@ -15,6 +15,8 @@
         let lowerInput = "";
         let matchResults = "";
         let invalid = "";
+        let playerScore = 0;
+        let computerScore = 0;
 
         let computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
 
@@ -41,15 +43,22 @@
                 alert("It's a tie! " + matchResults);
             } else if (lowerInput == "rock" && computerChoice == "scissors") {
                 alert("You've won! " + matchResults);
+                playerScore++;
             } else if (lowerInput == "paper" && computerChoice == "rock") {
                 alert("You've won! " + matchResults);
+                playerScore++;
             } else if (lowerInput == "scissors" && computerChoice == "paper") {
                 alert("You've won! " + matchResults);
-            } else if (invalid == 1) {
+                playerScore++;
+            } else if (invalid == 1) { //invalid strings will still step through to the else statement without this extra conditional
                 alert("Your match will begin once you select Rock, Paper, or Scissors!")
             } else {
                 alert("You've lost... " + matchResults);
+                computerScore++;
             }
+            console.log("Player's score " + playerScore);
+            console.log("Computer's score " + computerScore);
+            
         }
 
     </script>
