@@ -10,23 +10,18 @@
 <body>
     
     <script>
-        let computerInput = Math.floor(Math.random() * 3); //does not include 3
+        let computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
         console.log(computerInput);
 
         let playerInput = prompt("Please enter your choice of: Rock, Paper, or Scissor");
-        let lowerInput = playerInput.toLowerCase(); //to correct upper case inputs
+        let lowerInput = playerInput.toLowerCase(); //correct upper case inputs
         
-        validInput = "Please enter a valid choice"
+        validInput = "Please enter a valid choice" //error message if input is invalid
 
-        if (lowerInput = "rock") { //return statements only valid in functions
-            return true;
-        } else if (lowerInput = "scissors") {
-            return true;
-        } else if (lowerInput = "paper") {
-            return true;
-        } else {
-        return validInput;
+        if (lowerInput != "rock" && lowerInput != "paper" && lowerInput != "scissor") { //check for invalid inputs
+            alert(validInput); 
         }
+    
     </script>
 
 </body>
