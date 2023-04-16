@@ -58,7 +58,14 @@
             }
             console.log("Player's score " + playerScore);
             console.log("Computer's score " + computerScore);
-            
+        }
+
+        if (playerScore > computerScore) { //display the results of the match
+            alert("Congratulations, you've won! The score is " + playerScore + " to " + computerScore);
+        } else if (playerScore == computerScore) {
+            alert("It's a tie at " + playerScore + " each!");
+        } else {
+            alert("You lost...");
         }
 
     </script>
