@@ -10,7 +10,8 @@
 <body>
     
     <script>
-        let computerChoice = ""; //create empty strings to be defined below
+        let computerInput = 0; //create empty strings to be defined below
+        let computerChoice = ""; 
         let playerInput = "";
         let lowerInput = "";
         let matchResults = "";
@@ -18,20 +19,20 @@
         let playerScore = 0;
         let computerScore = 0;
 
-        let computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
-
-        if (computerInput == 0) { //assign randomly generated number a value of rock, paper, or scissor
-            computerChoice = "rock";
-        } else if (computerInput == 1) {
-            computerChoice = "paper"; 
-        } else {
-            computerChoice = "scissors";
-        }
-
         for (i=0; i<5; i++) {
             playerInput = prompt("Please enter your choice of: Rock, Paper, or Scissors");
             lowerInput = playerInput.toLowerCase();
-            matchResults = "Your selection: " + lowerInput + " | Computer's selection: " + computerChoice;
+            computerInput = Math.floor(Math.random() * 3); //randomize 0-2 (not including 3)
+            
+            if (computerInput == 0) { //assign randomly generated number a value of rock, paper, or scissor
+                computerChoice = "rock";
+            } else if (computerInput == 1) {
+                computerChoice = "paper"; 
+            } else {
+                computerChoice = "scissors";
+            }        
+            
+            matchResults = "Your selection: " + lowerInput + " | Computer's selection: " + computerChoice; //correct out of step computerChoice
 
             if (lowerInput != "rock" && lowerInput != "paper" && lowerInput != "scissors") { //check for valid input
                 alert("Please enter a valid choice");
@@ -56,8 +57,6 @@
                 alert("You've lost... " + matchResults);
                 computerScore++;
             }
-            console.log("Player's score " + playerScore);
-            console.log("Computer's score " + computerScore);
         }
 
         if (playerScore > computerScore) { //display the results of the match
@@ -65,9 +64,8 @@
         } else if (playerScore == computerScore) {
             alert("It's a tie at " + playerScore + " each!");
         } else {
-            alert("You lost...");
+            alert("You lost the match");
         }
-
     </script>
 
 </body>
