@@ -5,6 +5,7 @@ Randomize the computer's choice
 When the user inputs their choice:
     If the input is not "rock", "paper", or "scissor",
         provide an error message,
+        prompt the user for a valid choice,
 
 Compare the input against the computer:
     If the player input is scissor, 

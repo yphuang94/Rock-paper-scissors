@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    
+    <script>
+        function getCompInput() { 
+            let randomNum = Math.floor(Math.random() * 3); //generating random number between 0-2
+            let compChoice = ""; //storing value of random number below
+            if (randomNum == 0) { //assinging a value to the numbers
+                compChoice = "rock";
+            } else if (randomNum == 1) {
+                compChoice = "paper";
+            } else {
+                compChoice = "scissor";
+            }
+            return compChoice; //returning computer's choice so playMatch won't be undefined
+        }
+
+        function getPlayerInput() { 
+            for (let i = 0; i < 1; i++) {
+                let userInput = prompt("Please enter a choice of: Rock, Paper, or Scissor"); //prompting user's input
+                let userChoice = userInput.toLowerCase();
+                if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissor") { //checking if input is valid
+                    alert("Please enter a valid choice to beging playing the game!");
+                    i--; //looping function until proper input is received
+                } else {
+                    return userChoice; //returning player's choice so playMatch won't be undefined
+                }
+            }
+        }
+
+        function playMatch() {
+            for (let i = 0; i < 5; i++) {
+                let playerResult = getPlayerInput(); //invoking function
+                let compResult = getCompInput(); //invoking function
+                if (playerResult == compResult) {
+                    alert(`It's a tie! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                } else if (playerResult == "rock" && compResult == "scissor") {
+                    alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                } else if (playerResult == "paper" && compResult == "rock") {
+                    alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                } else {
+                    alert(`You've lost...Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                }
+            }
+        }
+    
+        playMatch();
+    </script>
+
+</body>
+</html>
