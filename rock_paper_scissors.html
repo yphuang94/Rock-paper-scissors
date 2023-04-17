@@ -37,6 +37,8 @@
         }
 
         function playMatch() {
+            let playerScore = 0; //incrementing this to keep track of player's scores
+            let compScore = 0; //incrementing this to keep track of computer's scores
             for (let i = 0; i < 5; i++) {
                 let playerResult = getPlayerInput(); //invoking function
                 let compResult = getCompInput(); //invoking function
@@ -44,15 +46,30 @@
                     alert(`It's a tie! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
                 } else if (playerResult == "rock" && compResult == "scissor") {
                     alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                    playerScore++;
                 } else if (playerResult == "paper" && compResult == "rock") {
                     alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                    playerScore++;
+                } else if (playerResult == "scissor" && compResult == "paper") {
+                    alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                    playerScore++;
                 } else {
                     alert(`You've lost...Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
+                    compScore++;
                 }
+            }
+            
+            if (playerScore == compScore) { 
+                alert(`It's a tie at ${playerScore} each!`);
+            } else if (playerScore > compScore) {
+                alert(`You've won with a score of ${playerScore} to ${compScore}!`);
+            } else {
+                alert(`You've lost with a score of ${playerScore} to ${compScore}!`);
             }
         }
     
-        playMatch();
+        playMatch(); //invoking function to play the match
+
     </script>
 
 </body>
