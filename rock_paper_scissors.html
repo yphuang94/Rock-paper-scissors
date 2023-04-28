@@ -8,7 +8,13 @@
 </head>
 
 <body>
-    
+    <div>
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissor">Scissor</button>
+    </div>
+
+
     <script>
         function getCompInput() { 
             let randomNum = Math.floor(Math.random() * 3); //generating random number between 0-2
@@ -36,6 +42,7 @@
             }
         }
 
+        /*
         function playMatch() {
             let playerScore = 0; //incrementing this to keep track of player's scores
             let compScore = 0; //incrementing this to keep track of computer's scores
@@ -67,9 +74,9 @@
                 alert(`You've lost with a score of ${playerScore} to ${compScore}!`);
             }
         }
-    
+        
         playMatch(); //invoking function to play the match
-
+        */
     </script>
 
 </body>
