@@ -11,14 +11,33 @@
 <body>
     <div class="main-container">
         <div class="button-container">
-            <button class="rock">Rock</button>
-            <button class="paper">Paper</button>
-            <button class="scissor">Scissor</button>
+            <button id="rock" button onclick="rockSelection()">Rock</button>
+            <button id="paper" button onclick="paperSelection()">Paper</button>
+            <button id="scissor" button onclick="scissorSelection()">Scissor</button>
         </div>
     </div>
 
 
     <script>
+
+        let userSelection = "";
+        
+        function rockSelection() {
+            userSelection = "rock";
+            return(userSelection);
+        }
+
+        function paperSelection() {
+            userSelection = "paper";
+            return(userSelection);
+        }
+
+        function scissorSelection() {
+            userSelection = "scissor";
+            return(userSelection);
+        }
+
+        /*
         function getCompInput() { 
             let randomNum = Math.floor(Math.random() * 3); 
             let compChoice = ""; 
@@ -32,6 +51,7 @@
             return compChoice;
         }
 
+        
         function getPlayerInput() { 
             for (let i = 0; i < 1; i++) {
                 let userInput = prompt("Please enter a choice of: Rock, Paper, or Scissor"); //prompting user's input
@@ -45,7 +65,7 @@
             }
         }
 
-        /*
+
         function playMatch() {
             let playerScore = 0; //incrementing this to keep track of player's scores
             let compScore = 0; //incrementing this to keep track of computer's scores
