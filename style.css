@@ -1,0 +1,24 @@
+.main-container {
+    border: 1px solid black;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    border: 1px solid black;
+    height: 30vh;
+    width: 50vh;
+    background-color: lightgoldenrodyellow;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rock,.paper,.scissor {
+    height: 30px;
+    margin: 15px;
+    background-color: lightblue;
+}
