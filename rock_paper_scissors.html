@@ -15,16 +15,22 @@
             <button id="paper" button onclick="paperSelection()">Paper</button>
             <button id="scissor" button onclick="scissorSelection()">Scissor</button>
         </div>
+        <div class="results-container">
+            <div id="results">Match Results Here</div>
+        </div>
     </div>
 
 
     <script>
         let compSelection = "";
         let userSelection = "";
+
+        /*
         let playerScore = 0;
         let computerScore = 0;
         let gameResult = "";
-        
+        */
+
         function getCompInput() { 
             let randomNum = Math.floor(Math.random() * 3); 
             if (randomNum == 0) { 
@@ -48,6 +54,7 @@
                 gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
             }
             console.log(gameResult);  
+            document.getElementById("results").innerHTML = gameResult;
         }
 
         function paperSelection() {
@@ -61,6 +68,7 @@
                 gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
             }
             console.log(gameResult);  
+            document.getElementById("results").innerHTML = gameResult;
         }
         
         function scissorSelection() {
@@ -74,9 +82,11 @@
                 gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
             }
             console.log(gameResult);  
+            document.getElementById("results").innerHTML = gameResult;
         }
-  
-   
+
+        
+
     </script>
 
 </body>
