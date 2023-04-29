@@ -19,87 +19,64 @@
 
 
     <script>
-
+        let compSelection = "";
         let userSelection = "";
+        let playerScore = 0;
+        let computerScore = 0;
+        let gameResult = "";
         
+        function getCompInput() { 
+            let randomNum = Math.floor(Math.random() * 3); 
+            if (randomNum == 0) { 
+                compSelection = "rock";
+            } else if (randomNum == 1) {
+                compSelection = "paper";
+            } else {
+                compSelection = "scissor";
+            }
+            return compSelection;
+        }
+
         function rockSelection() {
             userSelection = "rock";
-            return(userSelection);
+            compSelection = getCompInput();
+            if (compSelection == "rock") {
+                gameResult = `The game is a tie! Both player and Computer selected ${userSelection}!`;
+            } else if (compSelection == "scissor") {
+                gameResult = `You've won! Player Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
+            } else {
+                gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
+            }
+            console.log(gameResult);  
         }
 
         function paperSelection() {
             userSelection = "paper";
-            return(userSelection);
+            compSelection = getCompInput();
+            if (compSelection == "paper") {
+                gameResult = `The game is a tie! Both player and Computer selected ${userSelection}!`;
+            } else if (compSelection == "rock") {
+                gameResult = `You've won! Player Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
+            } else {
+                gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
+            }
+            console.log(gameResult);  
         }
-
+        
         function scissorSelection() {
             userSelection = "scissor";
-            return(userSelection);
-        }
-
-        /*
-        function getCompInput() { 
-            let randomNum = Math.floor(Math.random() * 3); 
-            let compChoice = ""; 
-            if (randomNum == 0) { 
-                compChoice = "rock";
-            } else if (randomNum == 1) {
-                compChoice = "paper";
+            compSelection = getCompInput();
+            if (compSelection == "scissor") {
+                gameResult = `The game is a tie! Both player and Computer selected ${userSelection}!`;
+            } else if (compSelection == "paper") {
+                gameResult = `You've won! Player Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
             } else {
-                compChoice = "scissor";
+                gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
             }
-            return compChoice;
+            console.log(gameResult);  
         }
-
-        
-        function getPlayerInput() { 
-            for (let i = 0; i < 1; i++) {
-                let userInput = prompt("Please enter a choice of: Rock, Paper, or Scissor"); //prompting user's input
-                let userChoice = userInput.toLowerCase();
-                if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissor") { //checking if input is valid
-                    alert("Please enter a valid choice to beging playing the game!");
-                    i--; //looping function until proper input is received
-                } else {
-                    return userChoice; //returning player's choice so playMatch won't be undefined
-                }
-            }
-        }
-
-
-        function playMatch() {
-            let playerScore = 0; //incrementing this to keep track of player's scores
-            let compScore = 0; //incrementing this to keep track of computer's scores
-            for (let i = 0; i < 5; i++) {
-                let playerResult = getPlayerInput(); //invoking function
-                let compResult = getCompInput(); //invoking function
-                if (playerResult == compResult) {
-                    alert(`It's a tie! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
-                } else if (playerResult == "rock" && compResult == "scissor") {
-                    alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
-                    playerScore++;
-                } else if (playerResult == "paper" && compResult == "rock") {
-                    alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
-                    playerScore++;
-                } else if (playerResult == "scissor" && compResult == "paper") {
-                    alert(`You've won! Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
-                    playerScore++;
-                } else {
-                    alert(`You've lost...Player's selection: ${playerResult} | Computer's selection: ${compResult}`);
-                    compScore++;
-                }
-            }
-            
-            if (playerScore == compScore) { 
-                alert(`It's a tie at ${playerScore} each!`);
-            } else if (playerScore > compScore) {
-                alert(`You've won with a score of ${playerScore} to ${compScore}!`);
-            } else {
-                alert(`You've lost with a score of ${playerScore} to ${compScore}!`);
-            }
-        }
-        
-        playMatch(); //invoking function to play the match
-        */
+  
+   
     </script>
 
 </body>
