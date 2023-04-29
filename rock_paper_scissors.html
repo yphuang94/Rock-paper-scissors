@@ -11,9 +11,9 @@
 <body>
     <div class="main-container">
         <div class="button-container">
-            <button id="rock" button onclick="rockSelection()">Rock</button>
-            <button id="paper" button onclick="paperSelection()">Paper</button>
-            <button id="scissor" button onclick="scissorSelection()">Scissor</button>
+            <button id="rock" value="Rock" button onclick="playGame(this)">Rock</button>
+            <button id="paper" value="Paper" button onclick="playGame(this)">Paper</button>
+            <button id="scissor" value="Scissor" button onclick="playGame(this)">Scissor</button>
         </div>
         <div class="results-container">
             <div id="results">Match Results Here</div>
@@ -22,71 +22,37 @@
 
 
     <script>
-        let compSelection = "";
-        let userSelection = "";
 
-        /*
-        let playerScore = 0;
-        let computerScore = 0;
-        let gameResult = "";
-        */
-
-        function getCompInput() { 
+       function getCompInput() { 
             let randomNum = Math.floor(Math.random() * 3); 
             if (randomNum == 0) { 
-                compSelection = "rock";
+                compSelection = "Rock";
             } else if (randomNum == 1) {
-                compSelection = "paper";
+                compSelection = "Paper";
             } else {
-                compSelection = "scissor";
+                compSelection = "Scissor";
             }
             return compSelection;
         }
 
-        function rockSelection() {
-            userSelection = "rock";
-            compSelection = getCompInput();
-            if (compSelection == "rock") {
-                gameResult = `The game is a tie! Both player and Computer selected ${userSelection}!`;
-            } else if (compSelection == "scissor") {
-                gameResult = `You've won! Player Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
+        function playGame (buttonObj) {
+            let userSelection = buttonObj.value; //get value of button
+            let compSelection = getCompInput();
+            let gameResult = "";
+            if (userSelection == compSelection) {
+                gameResult = `This is a tie! You both chose ${userSelection}`;
+            } else if (userSelection == "Paper" && compSelection == "Rock") {
+                gameResult = `You won! You selected: ${userSelection} | Computer Selected: ${compSelection}`;
+            } else if (userSelection == "Rock" && compSelection == "Scissor") {
+                gameResult = `You won! You selected: ${userSelection} | Computer Selected: ${compSelection}`;
+            } else if (userSelection == "Scissor" && compSelection == "Paper") {
+                gameResult = `You won! You selected: ${userSelection} | Computer Selected: ${compSelection}`;
             } else {
-                gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
+                gameResult = `You lost...You selected: ${userSelection} | Computer Selected: ${compSelection}`;
             }
-            console.log(gameResult);  
             document.getElementById("results").innerHTML = gameResult;
         }
-
-        function paperSelection() {
-            userSelection = "paper";
-            compSelection = getCompInput();
-            if (compSelection == "paper") {
-                gameResult = `The game is a tie! Both player and Computer selected ${userSelection}!`;
-            } else if (compSelection == "rock") {
-                gameResult = `You've won! Player Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
-            } else {
-                gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
-            }
-            console.log(gameResult);  
-            document.getElementById("results").innerHTML = gameResult;
-        }
-        
-        function scissorSelection() {
-            userSelection = "scissor";
-            compSelection = getCompInput();
-            if (compSelection == "scissor") {
-                gameResult = `The game is a tie! Both player and Computer selected ${userSelection}!`;
-            } else if (compSelection == "paper") {
-                gameResult = `You've won! Player Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
-            } else {
-                gameResult = `You've lost! Player's Selection: ${userSelection} | Computer's Selection: ${compSelection}`;
-            }
-            console.log(gameResult);  
-            document.getElementById("results").innerHTML = gameResult;
-        }
-
-        
-
+       
     </script>
 
 </body>
