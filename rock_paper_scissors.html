@@ -13,15 +13,17 @@
         <div class="button-container">
             <button id="rock" value="Rock" button onclick="playGame(this)">Rock</button>
             <button id="paper" value="Paper" button onclick="playGame(this)">Paper</button>
-            <button id="scissor" value="Scissor" button onclick="playGame(this)">Scissor</button>
+            <button id="scissor" value="Scissor" button onclick="playGame(this)">Scissor</button> <!-- "this" passes the element's properties -->
         </div>
         <div class="results-container">
-            <div id="results">Match Results Here</div>
+            <div id="results">Match Results: Best of 5 Wins!</div>
         </div>
     </div>
 
-
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let gamesPlayed = 0;
 
        function getCompInput() { 
             let randomNum = Math.floor(Math.random() * 3); 
@@ -35,24 +37,51 @@
             return compSelection;
         }
 
-        function playGame (buttonObj) {
-            let userSelection = buttonObj.value; //get value of button
-            let compSelection = getCompInput();
-            let gameResult = "";
+        function playGame (buttonObject) {
+            let userSelection = buttonObject.value; //get dynamic value of button
+            let compSelection = getCompInput(); //invoke computer's selection
+            let gameResult = ""; //pass into HTML element
+
             if (userSelection == compSelection) {
                 gameResult = `This is a tie! You both chose ${userSelection}`;
+                gamesPlayed++;
             } else if (userSelection == "Paper" && compSelection == "Rock") {
                 gameResult = `You won! You selected: ${userSelection} | Computer Selected: ${compSelection}`;
+                playerScore++;
+                gamesPlayed++;
             } else if (userSelection == "Rock" && compSelection == "Scissor") {
                 gameResult = `You won! You selected: ${userSelection} | Computer Selected: ${compSelection}`;
+                playerScore++;
+                gamesPlayed++;
             } else if (userSelection == "Scissor" && compSelection == "Paper") {
                 gameResult = `You won! You selected: ${userSelection} | Computer Selected: ${compSelection}`;
+                playerScore++;
+                gamesPlayed++;
             } else {
                 gameResult = `You lost...You selected: ${userSelection} | Computer Selected: ${compSelection}`;
+                computerScore++;
+                gamesPlayed++;
             }
-            document.getElementById("results").innerHTML = gameResult;
-        }
+
+            if (gamesPlayed == 5) {
+                if (playerScore > computerScore) {
+                    alert(`You won the match! Your Score: ${playerScore} | Computer's score: ${computerScore}`);
+                    gamesPlayed = 0; //reset game count and player/computer scores
+                    playerScore = 0; 
+                    computerScore = 0;
+                } else {
+                    alert(`You lost the match...Your Score: ${playerScore} | Computer's score: ${computerScore}`);
+                    gamesPlayed = 0; 
+                    playerScore = 0;
+                    computerScore = 0;
+                }
+            }
+
+            document.getElementById("results").innerHTML = gameResult; //updating HTML container
+        }  
        
+
+
     </script>
 
 </body>
